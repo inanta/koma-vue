@@ -1,25 +1,66 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import { createRouter, createWebHashHistory } from "vue-router";
+import Home from "../views/Home.vue";
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView
+    // name: "Home",
+    // path: "",
+    component: Home,
+    children: [
+      {
+        path: "",
+        name: "Dashboard",
+        component: () => import("../views/Dashboard.vue"),
+        alias: "/dashboard"
+      },
+      {
+        path: "about",
+        name: "About",
+        component: () => import("../views/About.vue")
+      },
+      {
+        path: "app/view/:name",
+        name: "AppView",
+        component: () => import("../views/AppView")
+      },
+      {
+        path: "app/insert/:name",
+        name: "AppInsert",
+        component: () => import("../views/AppInsert.vue")
+      },
+      {
+        path: "app/edit/:name/:id",
+        name: "AppEdit",
+        component: () => import("../views/AppEdit.vue")
+      },
+      {
+        path: "appbuilder/view",
+        name: "App Builder View",
+        component: () => import("../views/AppBuilderView")
+      },
+      {
+        path: "appbuilder/build/:name?",
+        name: "App Builder",
+        component: () => import("../views/AppBuilder")
+      }
+    ],
+    redirect: "/dashboard"
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue")
+    path: "/signout",
+    name: "Sign Out",
+    component: () => import("../views/SignOut.vue")
+  },
+  {
+    path: "/signin",
+    name: "Sign In",
+    component: () => import("../views/SignIn.vue")
   }
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes
 });
 
