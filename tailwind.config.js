@@ -2,7 +2,11 @@
 module.exports = {
   mode: "jit",
   purge: {
-    content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"]
+    content: [
+      "./index.html",
+      "./src/**/*.{vue,js,ts,jsx,tsx}",
+      "./public/index.html"
+    ]
   },
   theme: {
     extend: {
