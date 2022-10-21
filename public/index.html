@@ -11,7 +11,23 @@
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div class="flex">
+      <div id="sidebar">
+      </div>
+      <div class="flex flex-col w-full">
+        <div class="flex-grow flex-shrink-0">
+          <div id="topbar">
+          </div>
+          <div class="container-fluid" id="app">
+          </div>
+        </div>
+        <footer class="bg-white flex-shrink-0 py-8 shadow">
+          <div class="my-auto"><div class="my-auto text-center text-gray-400 text-xs">
+            <span>Copyright © 8 Days Project 2020</span>
+          </div>
+        </footer>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
